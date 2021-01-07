@@ -22,6 +22,10 @@ class Slingshot{
         this.chain.bodyA=null
     }
 
+    attach(body){
+        this.chain.bodyA=body
+    }
+
     display(){
         if(this.chain.bodyA!=null){
             var pointA=this.chain.bodyA.position;
