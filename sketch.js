@@ -25,7 +25,7 @@ function setup(){
     getTime()
 
     platForm= new Ground(150,305,300,170);
-    log6=new Log (230,180,80,PI/2);
+
     ground = new Ground(600,height,1200,20)
 
     box1 = new Box(700,320,70,70);
@@ -49,11 +49,6 @@ function setup(){
 
 }
 
-function keyPressed(){
-    if(keyCode===32){
-     //   slingshot.attach(bird.body)
-    }
-}
 
 function draw(){
     background(backgroundImg);
@@ -77,7 +72,6 @@ function draw(){
     box5.display();
     log4.display();
     log5.display();
-    log6.display();
 
     bird.display();
 
@@ -88,9 +82,9 @@ function draw(){
 }
 
 function mouseDragged(){
-    if(gameState != "launch"){
+   //if(gameState != "launch"){
     Matter.Body.setPosition(bird.body,{x:mouseX,y:mouseY})
-}
+//}
 }
 
 function mouseReleased(){
@@ -108,4 +102,10 @@ function mouseReleased(){
     console.log(dateTime)
 }
 
-
+function keyPressed(){
+    if(keyCode===32){
+        bird.trajectory=[]
+        Matter.Body.setPosition(bird.body,{x:200,y:50})
+       slingshot.attach(bird.body)
+    }
+}
